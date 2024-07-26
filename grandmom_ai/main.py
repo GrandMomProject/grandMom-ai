@@ -18,7 +18,7 @@ app.add_middleware(
 
 @app.get('/')
 def home():
-    return "hello"
+    return "hello2222"
 
 
 @app.post('/first-interview')
