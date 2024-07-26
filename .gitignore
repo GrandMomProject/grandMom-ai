@@ -3,4 +3,4 @@ __pycache__/
 *.py[cod]
 
 # Ignore specific config file
-/config.py
+/grandmom_ai/config.py
