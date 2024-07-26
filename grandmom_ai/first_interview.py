@@ -1,5 +1,5 @@
 import requests
-from grandmom_ai import config
+import config
 import json
 
 
