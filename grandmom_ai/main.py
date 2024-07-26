@@ -2,8 +2,8 @@ from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 import uvicorn
 
-from grandmom_ai.first_interview import CompletionExecutor
-from grandmom_ai.models import FirstInterviewReq
+from first_interview import CompletionExecutor
+from models import FirstInterviewReq
 
 app = FastAPI()
 
