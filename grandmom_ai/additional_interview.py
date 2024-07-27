@@ -34,7 +34,7 @@ class CompletionExecutorAdd:
                             full_response = data["message"]["content"]
             return full_response.strip()
 
-    def additional_interview(self, additionalInterview: AdditionalInterviewReq):
+    def get_additional_interview(self, additionalInterview: AdditionalInterviewReq):
         chat_history = additionalInterview.chatHistory
         answer = additionalInterview.answer
         content = chat_history + f", \"대답\": \"{answer}\"" + "}]}"

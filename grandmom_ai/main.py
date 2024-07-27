@@ -5,7 +5,8 @@ from datetime import datetime
 
 from first_interview import CompletionExecutor
 from additional_interview import CompletionExecutorAdd
-from models import FirstInterviewReq, AdditionalInterviewReq
+from summary import CompletionExecutorSummary
+from models import FirstInterviewReq, AdditionalInterviewReq, SummaryReq, SummaryRes
 
 app = FastAPI()
 
@@ -26,19 +27,26 @@ def home():
 @app.post('/first-interview')
 def first_interview(firstInterview: FirstInterviewReq):
     log_time()
-    return CompletionExecutor().first_interview(firstInterview.imageSummary)
+    return CompletionExecutor().get_first_interview(firstInterview.imageSummary)
 
 
 @app.post('/additional-interview')
 def additional_interview(additionalInterview: AdditionalInterviewReq):
     log_time()
-    return CompletionExecutorAdd().additional_interview(additionalInterview)
+    return CompletionExecutorAdd().get_additional_interview(additionalInterview)
+
+
+@app.post('/summary', response_model=SummaryRes)
+def additional_interview(summaryReq: SummaryReq):
+    log_time()
+    return CompletionExecutorSummary().get_summary(summaryReq)
 
 
 def log_time():
     current_time = datetime.now()
     current_time_str = current_time.strftime("%Y-%m-%d %H:%M:%S")
     print("현재 시간:", current_time_str)
+
 
 if __name__ == "__main__":
     uvicorn.run("main:app", host="0.0.0.0", port=8888, reload=False)
