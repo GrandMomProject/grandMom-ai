@@ -57,7 +57,7 @@ class CompletionExecutorAdd:
         response = self.__execute__(request_data)
         print(response)
         try:
-            response_double = response.split('질문 : ')[1]
+            response_double = response.split('질문: ')[1].strip()
         except IndexError:
-            response_double = response
-        return response_double
+            response_double = response.strip()
+        return response_double.replace('"질문": ', '')
