@@ -55,6 +55,7 @@ class CompletionExecutorAdd:
             'seed': 0
         }
         response = self.__execute__(request_data)
+        print(response)
         try:
             response_double = response.split('질문 : ')[1]
         except IndexError:
