@@ -59,7 +59,9 @@ class CompletionExecutorAdd:
             response_double = response.split('질문: ')[1].strip()
         except IndexError:
             response_double = response.strip()
+
         response_double = response_double.replace('"질문": ', '')
+        response_double = response_double.replace('질문 : ', '')
         if response_double.startswith('"') and response_double.endswith('"'):
             response_double = response_double[1:-1]
         return response_double
